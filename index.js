@@ -10,6 +10,8 @@ const FileStore = require('session-file-store')(session)
 const flash = require('express-flash')
 const Pensamento = require('./models/Pensamento')
 const Usuario = require('./models/Usuario')
+const PensamentosRouter = require('./routes/PensamentosRouter')
+const pensamentosControllers = require('./controllers/pensamentosControllers')
 
 //receber a resposta do body
 app.use(express.urlencoded({extended: true}))
@@ -23,6 +25,10 @@ app.set('view engine', 'handlebars') //seta o motor de visualização para handl
 app.engine('handlebars', engine({
     partialsDir: path.join(__dirname, 'views', 'partials')
 })) 
+
+app.use('/pensamentos', PensamentosRouter) // usa o PensamentosRouter para rotas relacionadas a pensamentos
+
+app.get('/', pensamentosControllers.mostrarPensamentos) // rota raiz que chama o controller para mostrar pensamentos
 
 app.use(session({  // configurações da sessão
     name: 'session', // nome da sessão

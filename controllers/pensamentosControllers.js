@@ -1,6 +1,7 @@
 const express = require('express')
+
 module.exports = class pensamentosControllers {
-    static getPensamentos(req, res){
-        res.render('main')
+    static mostrarPensamentos(req, res){
+        res.render('pensamentos/home')
     }
 }
