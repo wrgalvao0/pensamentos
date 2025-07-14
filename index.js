@@ -8,6 +8,8 @@ const { error } = require('console')
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const flash = require('express-flash')
+const Pensamento = require('./models/Pensamento')
+const Usuario = require('./models/Usuario')
 
 //receber a resposta do body
 app.use(express.urlencoded({extended: true}))
@@ -29,7 +31,7 @@ app.use(session({  // configurações da sessão
     saveUninitialized: false, // não salvar sessões não inicializadas
     store: new FileStore({ // armazena sessões em arquivos
         logFn: function(){}, // desativa logs
-        path: path.join(require('os').tempdir(), 'sessions') // define o caminho para armazenar os arquivos de sessão
+        path: path.join(require('os').tmpdir(), 'sessions') // define o caminho para armazenar os arquivos de sessão
     }),
     cookie: {
         secure: false,
