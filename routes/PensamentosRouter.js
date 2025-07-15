@@ -4,4 +4,5 @@ const pensamentosControllers = require('../controllers/pensamentosControllers')
 
 router.get('/', pensamentosControllers.mostrarPensamentos)
 
+
 module.exports = router

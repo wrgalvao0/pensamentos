@@ -1,0 +1,11 @@
+<div class="container d-flex flex-column justify-content-center align-items-center container-pagina-login">
+    <h1 class="text-center">Entrar</h1>
+    <form class="d-flex flex-column form-login" action="/autenticacao/entrar" method="POST">
+        <label class="fw-bold mt-2" for="emailId">Email: </label>
+        <input class="form-control" type="email" name="email" id="emailId" placeholder="Digite o seu email">
+        <label class="fw-bold mt-2" for="password">Senha: </label>
+        <input class="form-control" type="password" name="senha" id="password" placeholder="Digite a sua senha">
+        <div class="mt-2 d-flex justify-content-center"><input class="btn btn-success" type="submit" value="Entrar"></div>
+        <p class="text-center mt-2">Não tem uma conta ainda? então <a href="/autenticacao/cadastrar/usuario">Clique aqui</a></p>
+    </form>
+</div>

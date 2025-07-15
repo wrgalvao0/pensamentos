@@ -12,6 +12,7 @@ const Pensamento = require('./models/Pensamento')
 const Usuario = require('./models/Usuario')
 const PensamentosRouter = require('./routes/PensamentosRouter')
 const pensamentosControllers = require('./controllers/pensamentosControllers')
+const autenticacaoRouter = require('./routes/autenticacaoRouter')
 
 //receber a resposta do body
 app.use(express.urlencoded({extended: true}))
@@ -19,16 +20,6 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json()) 
 
 app.use(express.static('public'))  //define public como pasta estatica
-
-app.set('view engine', 'handlebars') //seta o motor de visualização para handlebars
-
-app.engine('handlebars', engine({
-    partialsDir: path.join(__dirname, 'views', 'partials')
-})) 
-
-app.use('/pensamentos', PensamentosRouter) // usa o PensamentosRouter para rotas relacionadas a pensamentos
-
-app.get('/', pensamentosControllers.mostrarPensamentos) // rota raiz que chama o controller para mostrar pensamentos
 
 app.use(session({  // configurações da sessão
     name: 'session', // nome da sessão
@@ -46,6 +37,13 @@ app.use(session({  // configurações da sessão
         httpOnly: true // impede o acesso ao cookie via JavaScript
     }
 })) 
+app.use(flash()) // usa o middleware de flash para mensagens temporárias
+
+app.set('view engine', 'handlebars') //seta o motor de visualização para handlebars
+
+app.engine('handlebars', engine({
+    partialsDir: path.join(__dirname, 'views', 'partials')
+}))
 
 // middleware para passar a sessão para as views
 app.use((req, res, next) => { 
@@ -55,7 +53,20 @@ app.use((req, res, next) => {
     next() // chama o próximo middleware
 }) 
 
-app.use(flash()) // usa o middleware de flash para mensagens temporárias
+app.use('/pensamentos', PensamentosRouter) // usa o PensamentosRouter para rotas relacionadas a pensamentos
+
+app.use('/autenticacao', autenticacaoRouter ) // usa o autenticacaoRouter para rotas de autenticação
+
+
+//app.use('/autenticacao',)
+
+app.get('/', pensamentosControllers.mostrarPensamentos) // rota raiz que chama o controller para mostrar pensamentos
+
+
+
+
+
+
 
 conexao.sync().then(()=>{
     app.listen(porta, () => {

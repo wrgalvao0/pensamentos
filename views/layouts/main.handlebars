@@ -2,47 +2,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"
+    defer></script>
 </head>
 
 <body>
-    
-    <nav class="navbar navbar-expand-md bg-body-tertiary">
-  <div class="container">
-    <a class="navbar-brand" href="/"><img src="./img/logo.png" alt=""></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse w-lg-100 " id="navbarSupportedContent">
-      <ul class="navbar-nav w-100 text-center d-flex flex-column flex-md-row justify-content-center justify-content-md-end flex-lg-row justify-content-lg-end mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="/">Pensamentos</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link fw-bold" href="/login">Entrar</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link fw-bold" href="/cadastrar">Cadastrar</a>
-            </li>
-      </ul>
+  <nav class="navbar navbar-expand-md bg-body-tertiary">
+    <div class="container">
+      <img src="/img/logo.png" alt="logo">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse w-lg-100 " id="navbarSupportedContent">
+        <ul
+          class="navbar-nav w-100 text-center d-flex flex-column flex-md-row justify-content-center justify-content-md-end flex-lg-row justify-content-lg-end mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="/">Pensamentos</a>
+          </li>
+          {{#if session.userid}}
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="/">Dashborad</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="/autenticacao/logout">Sair</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="/autenticacao/login">Entrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="/autenticacao/cadastrar/usuario">Cadastrar</a>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
     </div>
+  </nav>
+   <div class="container">
+    {{#if messages.mensagem}}
+    <div class="alert alert-warning">
+      <p class="text-center">{{messages.mensagem}}</p>
+    </div>
+    {{/if}}
   </div>
-</nav>
-    {{{body}}}
-    <footer>
-        <div class="container">
-            <p><span>Pensamentos</span> &copy; 2025</p>
-        </div>
-    </footer>
+  {{{body}}}
+ 
+
+
 </body>
 
 </html>

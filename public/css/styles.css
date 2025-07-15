@@ -3,3 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+.form-login{
+    border-radius: 5px;
+    background-color: rgb(189, 188, 188);
+    padding: 50px;
+    width: 450px;
+}
