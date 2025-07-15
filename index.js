@@ -57,16 +57,7 @@ app.use('/pensamentos', PensamentosRouter) // usa o PensamentosRouter para rotas
 
 app.use('/autenticacao', autenticacaoRouter ) // usa o autenticacaoRouter para rotas de autenticação
 
-
-//app.use('/autenticacao',)
-
 app.get('/', pensamentosControllers.mostrarPensamentos) // rota raiz que chama o controller para mostrar pensamentos
-
-
-
-
-
-
 
 conexao.sync().then(()=>{
     app.listen(porta, () => {
