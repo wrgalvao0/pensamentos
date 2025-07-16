@@ -1,8 +1,11 @@
 <div class="container">
-    <h1>Criar Pensamento</h1>
-    <form action="/pensamentos/salvar/pensamento" method="POST">
-        <label for="pensamento">Pensamento: </label>
-        <input type="text" name="pensamento" placeholder="Digite o seu pensamento">
-        <input type="submit" value="Adicionar Pensamento">
+    <h1 class="text-center">Criar Pensamento</h1>
+    <form class="container-form-criar-pensamento" action="/pensamentos/salvar/pensamento" method="POST">
+        <label for="pensamento" class="fw-bold">Pensamento: </label>
+        <input type="text" class="form-control" name="pensamento" placeholder="Digite o seu pensamento">
+        <div class="container d-flex flex-column align-items-center mt-2">
+            <input type="submit" class="btn btn-success" value="Adicionar Pensamento">
+            <a class="mt-2 fw-bold" href="/pensamentos/dashboard">Voltar</a>
+        </div>
     </form>
 </div>

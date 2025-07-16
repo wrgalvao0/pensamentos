@@ -1,3 +1,32 @@
 <div class="container">
-    <h1>Home</h1>
+
+    {{#if procurar}}
+    <h1 class="text-center">Você está procurando por: <span>{{procurar}}</span></h1>
+    {{else}}
+    <h1 class="mt-3 text-center">Todos os Pensamentos</h1>
+    {{/if}}
+    <form class="container px-0 mt-4" action="/pensamentos/buscar" method="GET">
+        <label class="fw-bold" for="campoBusca">Busca: </label>
+        <div class="d-flex gap-2 mb-4">
+            <input class="form-control" type="text" name="busca" id="campoBusca"
+                placeholder="Digite aqui o pensamento deseja encontrar">
+            <input class="btn btn-primary" type="submit" value="Buscar">
+        </div>
+    </form>
+    <div>
+        <div class="mb-4">
+            <span class="fw-bold">Ordenar por: </span> <a href="/pensamentos/ordenacao/recentes">Mais recentes</a>
+            <a href="/pensamentos/ordenacao/antigos">Mais antigos</a>
+        </div>
+
+    </div>
+    <ul class="ps-0">
+        <div>
+            {{#each pensamentos}}
+            <li class="list-unstyled border-top border-dark pt-4"><span class="fw-bold">Titulo:</span> {{this.titulo}}
+            </li>
+            <p class="pb-4 mb-0"><span class="fw-bold">Por:</span> {{usuario.nome}}</p>
+            {{/each}}
+        </div>
+    </ul>
 </div>

@@ -1,5 +1,25 @@
 <div class="container">
-    <h1>Dashboard</h1>
-    <a href="/pensamentos/criar">Criar Pensamento</a>
-    <h3>Seus pensamentos</h3>
+    <div class="container ps-0 text-center">
+        <h1 >Dashboard</h1>
+        <h3 >Seus pensamentos</h3>
+    </div>
+    {{#if pensamentosVazio}}
+    <p class="text-center">Você ainda não tem um pensamento cadastrado, comece cadastrando um pensamento por <a href="/pensamentos/criar">aqui</a></p>
+    {{/if}}
+        <ul class="ps-0">
+            {{#each meusPensamentos}}
+            <div class="container-pensamento-botao border-top border-dark">
+                <li class="pensamentos-lista">{{this.titulo}}</li>
+                <div class="d-flex flex-column">
+                    <a class="btn btn-success botao-editar mt-2" href="/pensamentos/editar/pensamento/{{this.id}}">Editar</a>
+                    <form action="/pensamentos/deletar/pensamento" class="d-inline-block" method="POST">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="submit" class="btn btn-danger mb-2 mt-2" value="Excluir">
+                    </form>
+                </div>
+            </div>
+            {{/each}}
+        </ul>
+    </h3>
+    <div class="text-center"><a href="/pensamentos/criar" class="btn btn-primary">Criar pensamento</a></div>
 </div>

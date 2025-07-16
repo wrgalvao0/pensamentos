@@ -1,0 +1,13 @@
+<div class="container">
+    <h1 class="text-center">Editar Pensamento</h1>
+    <form class="container mt-4 container-form-editar-pensamento" action="/pensamentos/editar/pensamento/salvar"
+        method="POST">
+        <input type="hidden" name="id" value="{{pensamento.id}}">
+        <label for="campoTitulo" class="fw-bold">Titulo:</label>
+        <input class="form-control" type="text" name="titulo" id="campoTitulo" value="{{pensamento.titulo}}">
+        <div class="container d-flex flex-column justify-content-center align-items-center mt-2">
+            <input class="btn btn-success" type="submit" value="Editar Pensamento">
+            <a class="mt-2 fw-bold" href="/pensamentos/dashboard">Voltar</a>
+        </div>
+    </form>
+</div>

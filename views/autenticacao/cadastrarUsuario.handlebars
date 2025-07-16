@@ -1,20 +1,20 @@
 <div class="container d-flex flex-column justify-content-center">
     <h1 class="text-center">Cadastrar Usuario</h1>
-    <form class="d-flex flex-column" action="/autenticacao/salvar/usuario" method="POST">
+    <form class="d-flex flex-column container-form-cadastrar-usuario" action="/autenticacao/salvar/usuario" method="POST">
         <div class="d-flex flex-column mb-2 w-100">
-            <label for="nomeInput">Nome: </label>
+            <label class="fw-bold" for="nomeInput">Nome: </label>
             <input class=" form-control " type="text" name="nome" id="nomeInput" required>
         </div>
         <div class="d-flex flex-column mb-2 w-100">
-            <div class="d-flex w-100 justify-content-start"><label for="emailInput">Email: </label></div>
+            <div class="d-flex w-100 justify-content-start"><label class="fw-bold" for="emailInput">Email: </label></div>
             <input class="w-lg-50 w-md-50 form-control" type="email" name="mail" id="emailInput" required>
         </div>
         <div class="d-flex flex-column align-items-center mb-2 w-100">
-            <div class="w-100 d-flex justify-content-start"><label for="senhaInput">Senha: </label></div>
+            <div class="w-100 d-flex justify-content-start"><label class="fw-bold" for="senhaInput">Senha: </label></div>
             <input class="form-control" type="password" name="senha" id="senhaInput" required>
         </div>
         <div class="d-flex flex-column align-items-center mb-2 w-100">
-            <div class="w-100 d-flex justify-content-start"><label for="confirmarSenhaInput">Confirmação de senha:
+            <div class="w-100 d-flex justify-content-start"><label class="fw-bold" for="confirmarSenhaInput">Confirmação de senha:
                 </label></div>
             <input class="form-control" type="password" name="confirmarSenha" id="confirmarSenhaInput" required>
         </div>

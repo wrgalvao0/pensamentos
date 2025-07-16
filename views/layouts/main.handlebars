@@ -17,7 +17,7 @@
 <body>
   <nav class="navbar navbar-expand-md bg-body-tertiary">
     <div class="container">
-      <img src="/img/logo.png" alt="logo">
+      <a href="/"><img src="/img/logo.png" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -49,15 +49,12 @@
   </nav>
    <div class="container">
     {{#if messages.mensagem}}
-    <div class="alert alert-warning">
+    <div class="alert alert-warning mt-4">
       <p class="text-center">{{messages.mensagem}}</p>
     </div>
     {{/if}}
   </div>
   {{{body}}}
- 
-
-
 </body>
 
 </html>

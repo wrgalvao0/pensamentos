@@ -1,11 +1,45 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.form-login{
+
+.form-login {
     border-radius: 5px;
     background-color: rgb(189, 188, 188);
     padding: 50px;
     width: 450px;
+}
+
+.pensamentos-lista {
+    list-style: none;
+}
+
+.botao-editar {
+    width: 100%;
+}
+
+.container-pensamento-botao {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-form-editar-pensamento {
+    background-color: rgb(189, 188, 188);
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.container-form-criar-pensamento {
+    background-color: rgb(189, 188, 188);
+    padding: 50px;
+    border-radius: 5px;
+}
+.container-form-cadastrar-usuario{
+    background-color: rgb(189, 188, 188);
+    padding: 50px;
+    border-radius: 5px;
 }
